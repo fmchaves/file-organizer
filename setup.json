@@ -1,0 +1,11 @@
+{"config1":
+    {
+      "root_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/dump",
+      "destination_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/dump/temp",
+      "move_folders": "yes",
+      "reorganize_files_inside_folders": "yes",
+      "separate_files_per_category": "yes",
+      "separate_files_per_type": "yes",
+      "do_not_move": [".ipynb_checkpoints"]
+    }
+}
