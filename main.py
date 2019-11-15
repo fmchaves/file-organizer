@@ -24,9 +24,9 @@ if __name__ == '__main__':
 
             root_path = abspath(config_dict[config]['root_path'])
             destination_path = abspath(config_dict[config]['destination_path'])
-            reorganize_files_inside_folders = config_dict[config]['reorganize_files_inside_folders'] == 'yes'
-            separate_files_per_category = config_dict[config]['separate_files_per_category'] == 'yes'
-            separate_files_per_type = config_dict[config]['separate_files_per_type'] == 'yes'
+            organize_files_per_category = config_dict[config]['organize_files_per_category'] == 'yes'
+            organize_files_per_type = config_dict[config]['organize_files_per_type'] == 'yes'
+            organize_files_inside_subfolders = config_dict[config]['organize_files_inside_subfolders'] == 'yes'
             do_not_move = config_dict[config]['do_not_move']
 
             # If the destination path is a subdirectory of the root path, add it to the list of directories not to visit.
@@ -51,23 +51,24 @@ if __name__ == '__main__':
                 if dirpath > root_path: # Folders that are in the root directory
                     directory_name = dirpath.split(sep)[-1]
                     aux_destination_path = join(aux_destination_path, directory_name)
-                    if dirpath not in directories_to_remove: # Stores the name of the folder to be removed later.
+                    if dirpath not in directories_to_remove and root_path != destination_path: # Stores the name of the folder to be removed later.
+                        print(f'{dirpath} {destination_path}')
                         directories_to_remove.append(dirpath)
                     if filenames: # If files available, build the destination path
                         paths = build_dst_path(filenames,\
                                                aux_destination_path,\
                                                file_ext_dict, \
                                                folder_names_dict, \
-                                               reorganize_files_inside_folders and separate_files_per_category, \
-                                               reorganize_files_inside_folders and separate_files_per_type)
+                                               organize_files_inside_subfolders and organize_files_per_category, \
+                                               organize_files_inside_subfolders and organize_files_per_type)
                 else:
                     if filenames: # If files available, build the destination path
                         paths = build_dst_path(filenames, \
                                              aux_destination_path, \
                                              file_ext_dict, \
                                              folder_names_dict, \
-                                             separate_files_per_category, \
-                                             separate_files_per_type)
+                                             organize_files_per_category, \
+                                             organize_files_per_type)
                 # Move files
                 for rt_path, dst_path in zip((join(dirpath, filename) for filename in filenames), paths):
                     move_from_to(root_path = rt_path, destination_path = dst_path)
@@ -76,4 +77,4 @@ if __name__ == '__main__':
             for dir_path in directories_to_remove:
                 rmtree(path = dir_path)
     else:
-        write_msg_logfile(msg = 'It was not possible to complete the process! (Check out the messages above)')
+         write_log_msg(msg = 'It was not possible to complete the process! (Check out the messages above)')

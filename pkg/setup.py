@@ -31,9 +31,9 @@ def read_config(file_name: str = PATH + FILE_NAME) -> dict:
     else:
         parameters = (('root_path', str), \
                       ('destination_path', str), \
-                      ('reorganize_files_inside_folders', str), \
-                      ('separate_files_per_category', str), \
-                      ('separate_files_per_type', str), \
+                      ('organize_files_per_category', str), \
+                      ('organize_files_per_type', str), \
+                      ('organize_files_inside_subfolders', str), \
                       ('do_not_move', list)) # Parameters name
 
         bad_configs = [] # Holds keys of the config dict with wrong names or bad values

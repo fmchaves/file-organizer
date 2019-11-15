@@ -12,11 +12,11 @@ Organize the files in your current directory or any directory of your choice by 
 {"config1":
     {
       "root_path": "C:/Users/username/Folder",
-      "destination_path": "C:/Users/username/Folder",      
-      "reorganize_files_inside_folders": "yes",
-      "separate_files_per_category": "yes",
-      "separate_files_per_type": "yes",
-      "do_not_move": ["SubFolder", "song1.mp4"]
+      "destination_path": "C:/Users/username/Folder",            
+      "organize_files_per_category": "yes",
+      "organize_files_per_type": "yes",
+      "organize_files_inside_folders": "yes",
+      "do_not_move": ["SubFolder", "concert.mp4"]
     }    
 }
 ```

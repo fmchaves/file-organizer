@@ -70,8 +70,8 @@ def build_dst_path(filenames : list, \
                  destination_path : str, \
                  file_ext_dict : dict, \
                  folder_names_dict : dict, \
-                 separate_files_per_category : bool, \
-                 separate_files_per_type : bool) -> Generator[str, None, None]:
+                 organize_files_per_category : bool, \
+                 organize_files_per_type : bool) -> Generator[str, None, None]:
     """
     Creates the destination file path.
 
@@ -85,9 +85,9 @@ def build_dst_path(filenames : list, \
         A dictionary containing types and categories for each extension
     folder_names_dict : dict
         A dictionary containing the name of the destination folders
-    separate_files_per_category : bool
+    organize_files_per_category : bool
         A boolean value where files must be separated by category or not
-    separate_files_per_type : bool
+    organize_files_per_type : bool
         A boolean value where files must be separated by type or not
 
     Yields
@@ -103,12 +103,12 @@ def build_dst_path(filenames : list, \
 
         file_ext = splitext(filename)[-1].lower()
 
-        if separate_files_per_category:
+        if organize_files_per_category:
             category = file_ext_dict.get(file_ext, '.unknown')['category']
             folder_name = folder_names_dict[category].title()
             aux_destination_path = join(aux_destination_path, folder_name)
 
-        if separate_files_per_type:
+        if organize_files_per_type:
             folder_name = file_ext_dict.get(file_ext, '.unknown')['file_type'].title()
             aux_destination_path = join(aux_destination_path, folder_name)
 
