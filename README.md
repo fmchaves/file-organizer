@@ -12,11 +12,14 @@ is the path of the source (where the files come from) directory, and the **desti
 
 **Note: if you are using Windows, do not use the traditional left slash, use the right one.**
 
-The parameter **organize_files_per_category** only accepts **yes** or **no**, and will organize the files per category such as: Text Files, Audio Files, Video Files, Game Files and so on. You can change the name of the categories on the file **category_names.json** inside categorization folder. Be careful to change names only after the colon.
+The parameter **organize_files_per_category (yes/no)**, if affirmative, will organize the files per category, such as: Text Files, Audio Files, Video Files, Game Files and so on. You can change the name of the categories on the file **category_names.json** inside categorization folder, but be careful to change names only after the colon.
 
-The parameter **organize_files_per_category (yes/no)**, and will organize the files per category such as: Text Files, Audio Files, Video Files, Game Files and so on.
+The parameter **organize_files_per_type (yes/no)**, if affirmative, will organize the files per type, such as: Latex Document, C++ Source Code File, Python Script, Mp3 Audio File, etc.
 
-The parameter **organize_files_per_category (yes/no)**, and will organize the files per category such as: Text Files, Audio Files, Video Files, Game Files and so on.
+The parameter **organize_files_inside_folders (yes/no)**, if affirmative, will organize the inner files of any folder in the **root_path**.
+
+The parameter **do_not_move** is a list that holds names of folder or files that will not be moved or reorganized.
+
 
 ```
 {"config1":

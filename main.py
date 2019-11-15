@@ -14,11 +14,11 @@ CURRENT_WD = getcwd() + sep
 if __name__ == '__main__':
 
     config_dict  = read_config(file_name = CURRENT_WD + sep +'setup.json') # Reads the config file
-    folder_names_dict = read_folder_names(file_name = CURRENT_WD + 'categorization' + sep + 'folder_names.json') # Reads the file containing the folder names
+    category_names_dict = read_category_names(file_name = CURRENT_WD + 'categorization' + sep + 'category_names.json') # Reads the file containing the folder names
     file_ext_dict = read_file_extensions(file_name = CURRENT_WD + 'categorization' + sep + 'file_extensions.json') # Reads the file containing informations about the extensios
 
 
-    if None not in (config_dict, folder_names_dict, file_ext_dict):
+    if None not in (config_dict, category_names_dict, file_ext_dict):
 
         for config in config_dict:
 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
                         paths = build_dst_path(filenames,\
                                                aux_destination_path,\
                                                file_ext_dict, \
-                                               folder_names_dict, \
+                                               category_names_dict, \
                                                organize_files_inside_subfolders and organize_files_per_category, \
                                                organize_files_inside_subfolders and organize_files_per_type)
                 else:
@@ -66,7 +66,7 @@ if __name__ == '__main__':
                         paths = build_dst_path(filenames, \
                                              aux_destination_path, \
                                              file_ext_dict, \
-                                             folder_names_dict, \
+                                             category_names_dict, \
                                              organize_files_per_category, \
                                              organize_files_per_type)
                 # Move files
