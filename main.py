@@ -24,16 +24,15 @@ if __name__ == '__main__':
 
             root_path = abspath(config_dict[config]['root_path'])
             destination_path = abspath(config_dict[config]['destination_path'])
-            move_folders = config_dict[config]['move_folders'] == 'yes'
             reorganize_files_inside_folders = config_dict[config]['reorganize_files_inside_folders'] == 'yes'
             separate_files_per_category = config_dict[config]['separate_files_per_category'] == 'yes'
             separate_files_per_type = config_dict[config]['separate_files_per_type'] == 'yes'
-            do_not_visit_dirs = config_dict[config]['do_not_move']
+            do_not_move = config_dict[config]['do_not_move']
 
             # If the destination path is a subdirectory of the root path, add it to the list of directories not to visit.
             aux = list(set(destination_path.split(sep)) - set(root_path.split(sep)))
             if aux:
-                do_not_visit_dirs.extend(aux)
+                do_not_move.extend(aux)
 
             scanned_dir = scan_dir(root_path) # Scan generator for root path
 
@@ -43,25 +42,24 @@ if __name__ == '__main__':
                 aux_destination_path = destination_path
                 # If the destination path is a subdirectory of the root path,
                 # this next block of code will avoid the directories within it.
-                if do_not_visit_dirs and dirnames:
-                    for dirname in do_not_visit_dirs:
-                        if dirname in dirnames:
-                            dirnames.remove(dirname)
+                if do_not_move and dirnames:
+                    for forbidden in do_not_move:
+                        if forbidden in dirnames:
+                            dirnames.remove(forbidden)
+                        elif forbidden in filenames:
+                            filenames.remove(forbidden)
                 if dirpath > root_path: # Folders that are in the root directory
-                    if move_folders: # Move folders that are in the root directory
-                        directory_name = dirpath.split(sep)[-1]
-                        aux_destination_path = join(aux_destination_path, directory_name)
-                        if dirpath not in directories_to_remove: # Stores the name of the folder to be removed later.
-                            directories_to_remove.append(dirpath)
-                        if filenames: # If files available, build the destination path
-                            paths = build_dst_path(filenames,\
-                                                   aux_destination_path,\
-                                                   file_ext_dict, \
-                                                   folder_names_dict, \
-                                                   reorganize_files_inside_folders and separate_files_per_category, \
-                                                   reorganize_files_inside_folders and separate_files_per_type)
-                    else:
-                        continue
+                    directory_name = dirpath.split(sep)[-1]
+                    aux_destination_path = join(aux_destination_path, directory_name)
+                    if dirpath not in directories_to_remove: # Stores the name of the folder to be removed later.
+                        directories_to_remove.append(dirpath)
+                    if filenames: # If files available, build the destination path
+                        paths = build_dst_path(filenames,\
+                                               aux_destination_path,\
+                                               file_ext_dict, \
+                                               folder_names_dict, \
+                                               reorganize_files_inside_folders and separate_files_per_category, \
+                                               reorganize_files_inside_folders and separate_files_per_type)
                 else:
                     if filenames: # If files available, build the destination path
                         paths = build_dst_path(filenames, \

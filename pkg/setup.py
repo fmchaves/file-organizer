@@ -31,7 +31,6 @@ def read_config(file_name: str = PATH + FILE_NAME) -> dict:
     else:
         parameters = (('root_path', str), \
                       ('destination_path', str), \
-                      ('move_folders', str), \
                       ('reorganize_files_inside_folders', str), \
                       ('separate_files_per_category', str), \
                       ('separate_files_per_type', str), \
