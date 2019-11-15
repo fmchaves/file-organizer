@@ -1,16 +1,7 @@
 {"config1":
     {
-      "root_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder1",
-      "destination_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder1",
-      "organize_files_per_category": "yes",
-      "organize_files_per_type": "yes",
-      "organize_files_inside_subfolders": "no",
-      "do_not_move": ["concert.mp4"]
-    },
-  "config2":
-    {
-      "root_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder2",
-      "destination_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder2",
+      "root_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder",
+      "destination_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder",
       "organize_files_per_category": "yes",
       "organize_files_per_type": "yes",
       "organize_files_inside_subfolders": "no",
