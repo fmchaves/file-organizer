@@ -35,7 +35,7 @@ def read_file_extensions(file_name: str = abspath(COMMON_PATH + 'file_extensions
         return file_ext_dict
 
 
-def read_folder_names(file_name: str = COMMON_PATH + 'category_names.json') -> dict:
+def read_category_names(file_name: str = COMMON_PATH + 'category_names.json') -> dict:
     """Loads a json file containing folder names by category.
 
     Parameters

@@ -20,7 +20,6 @@ The parameter **organize_files_inside_folders (yes/no)**, if affirmative, will o
 
 The parameter **do_not_move** is a list that holds names of folder or files that will not be moved or reorganized.
 
-
 ```
 {"config1":
     {
@@ -31,6 +30,26 @@ The parameter **do_not_move** is a list that holds names of folder or files that
       "organize_files_inside_folders": "yes/no",
       "do_not_move": ["folder_name1", "file_name1", ..., "folder_name", "file_name"]
     }    
+}
+```
+If you want to put this script to run on the background of your system, you can add as many configurations as you want (see the example below).
+
+```
+{"config1":
+    {
+      parameters
+    },
+  "config2":
+      {
+        parameters
+      },
+      .
+      .
+      .
+  "configN":
+      {
+        parameters
+      }     
 }
 ```
 
