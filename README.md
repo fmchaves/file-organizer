@@ -118,5 +118,5 @@ Folder
 │   ├── Video Files
 │   |   ├── Audio Video Interleave File
 |   |   |   └── movie1.avi
-│   ├── concert.mp4
+│   └── concert.mp4
 ```
