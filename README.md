@@ -79,7 +79,7 @@ Folder
 │   ├── document.txt
 │   ├── img1.jpeg
 │   ├── movie.avi
-│   ├── paper.latex
+│   ├── paper.tex
 │   ├── power-point.ppt
 │   ├── sheet.csv
 │   ├── song.mp3
@@ -110,7 +110,7 @@ Folder
 |   |   |   └── main.py
 │   ├── Text Files
 │   |   ├── Latex Document
-|   |   |   └── paper.latex
+|   |   |   └── paper.tex
 │   |   ├── Plain Text File
 |   |   |   └── document.txt
 │   |   ├── Wordpad Document
