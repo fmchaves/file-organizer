@@ -1,10 +1,10 @@
-{"config1":
+{"config_1":
     {
-      "root_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder",
-      "destination_path": "C:/Users/fmc_f/Desktop/Projects/organize-files/Test Folder",
-      "organize_files_per_category": "yes",
-      "organize_files_per_type": "yes",
-      "organize_files_inside_subfolders": "yes",
-      "do_not_move": ["SubFolder1", "concert.mp4"]
+      "root_path": "../../FolderName",
+      "destination_path": "../../FolderName",
+      "organize_files_per_category": "yes/no",
+      "organize_files_per_type": "yes/no",
+      "organize_files_inside_subfolders": "yes/no",
+      "do_not_move": ["FolderName", "filename.ext"]
     }
 }
